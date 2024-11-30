@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Quản Lý Sách - Hệ Thống Quản Lý Thư Viện{% endblock %}
+
+{% block content %}
+
+<div class="main-content">
+    <div class="header-loaisach">
+        LOẠI SÁCH
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Form Section -->
+        <div class="left-section">
+            <form method="POST">
+              <div>
+                <div class="form-group">
+                    <label for="maLoai">Mã Loại</label>
+                    <input type="text" id="maLoai" name="maLoai" >
+                </div>
+                <div class="form-group">
+                    <label for="loaiSach">Loại Sách</label>
+                    <input type="text" id="loaiSach" name="loaiSach" >
+                </div>
+                <div class="form-group">
+                    <label for="ghiChu">Ghi Chú</label>
+                    <input type="text" id="ghiChu" name="ghiChu">
+                </div>
+                <div>
+                  {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="flash-messages">
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                </div>
+              </div>
+                <div class="buttons-section">
+                    <button type="submit" formaction="{{ url_for('them_loaisach') }}">Thêm</button>
+                    <button type="submit" formaction="{{ url_for('sua_loaisach') }}">Sửa</button>
+                    <button type="reset">Làm mới</button>
+                </div>
+                
+            </form>        
+        </div>
+
+        <!-- Right Search and Table Section -->
+        <div class="right-section">
+            <div class="search-bar">
+                <label for="search">Tìm Kiếm</label>
+                <input type="text" id="search" onkeyup="searchFunction()" placeholder="Nhập để tìm kiếm...">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-ma-loai">Mã loại sách</th>
+                        <th class="col-ten-loai-sach">Tên loại</th>
+                        <th class="col-ghi-chu">Ghi chú</th>
+                        <th class="col-chuc-nang">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for loaisach in loaisachs %}
+                    <tr onclick="populateForm('{{ loaisach[0] }}', '{{ loaisach[1] }}', '{{ loaisach[2] }}')">
+                        <td>{{ loaisach[0] }}</td>
+                        <td>{{ loaisach[1] }}</td>
+                        <td>{{ loaisach[2] }}</td>
+                        <td class="col-chuc-nang-xoa">
+                            <form action="{{ url_for('xoa_loaisach', maLoai=loaisach[0]) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn-delete" onclick="return confirm('Bạn có chắc chắn muốn xóa loại sách này?');">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function populateForm(maLoai, loaiSach, ghiChu) {
+        document.getElementById('maLoai').value = maLoai;
+        document.getElementById('loaiSach').value = loaiSach;
+        document.getElementById('ghiChu').value = ghiChu;
+    }
+
+</script>
+
+{% endblock %}

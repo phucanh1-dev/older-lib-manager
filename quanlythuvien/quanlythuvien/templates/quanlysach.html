@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Quản Lý Sách - Hệ Thống Quản Lý Thư Viện{% endblock %}
+
+{% block content %}
+    <!-- Main content -->
+    <div class="main-content-quanlysach">
+            <div class="header-quanlysach">Quản lý sách</div>
+
+        <!-- Category buttons -->
+        <div class="category-buttons-quanlysach">
+            <a href="{{ url_for('quanlysach') }}" class="category-button-quanlysach button-sach">SÁCH</a>
+            <a href="{{ url_for('loaisach') }}" class="category-button-quanlysach button-loaisach">LOẠI SÁCH</a>
+            <a href="{{ url_for('tacgia') }}" class="category-button-quanlysach button-tacgia">TÁC GIẢ</a>
+            <button class="category-button-quanlysach button-nxb">NXB</button>
+        </div>
+
+        <!-- Search section -->
+        <div class="search-section-quanlysach">
+            <h3>Tìm Kiếm</h3>
+            <div class="search-options-quanlysach">
+                <label><input type="radio" name="search" checked> Tên Sách</label>
+                <label><input type="radio" name="search"> Loại Sách</label>
+                <label><input type="radio" name="search"> Nhà Xuất Bản</label>
+                <label><input type="radio" name="search"> Tác Giả</label>
+            </div>
+            <input type="text" class="search-box" placeholder="Nhập từ khóa tìm kiếm...">
+        </div>
+
+        <!-- Display list section -->
+        <div class="listhienthi-sach">
+            {% block danhmuc %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

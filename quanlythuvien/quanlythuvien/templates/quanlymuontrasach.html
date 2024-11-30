@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Quản Lý Sách - Hệ Thống Quản Lý Thư Viện{% endblock %}
+
+{% block content %}
+
+<div class="content-muontrasach">
+    <div class="header-muontrasach">Mượn Trả Sách</div>
+</div>
+<!-- Information Section -->
+<div class="row info-section">
+    <div class="col-md-4 sidebar-muontrasach">
+        <div class="student info-khung">
+            <h3>Thông Tin Sinh Viên</h3>
+            <label>Mã SV: <input type="text" readonly></label>
+            <label>Tên SV: <input type="text" readonly></label>
+        </div>
+
+    </div>
+    <div class="col-md-4 sidebar-muontrasach2">
+        <div class="book info-khung">
+            <h3>Thông Tin Sách</h3>
+            <label>Mã Sách: <input type="text" value="S2" readonly></label>
+            <label>Tên Sách: <input type="text" value="Sách Văn" readonly></label>
+            <label>Tên TG: <input type="text" value="van cu" readonly></label>
+            <label>SL Còn: <input type="text" value="8" readonly></label>
+        </div>
+    </div>
+    <div class="col-md-4 sidebar-muontrasach3">
+        <div class="loan info-khung">
+            <h3>Phiếu Mượn</h3>
+            <label>Mã PM: <input type="text" value="3" readonly></label>
+            <label>Ngày Mượn:</label> <br>
+            <input class="date1" type="date" value="2023-02-05" readonly><br>
+            <label>Ngày Trả:</label> <br>
+            <input class="date1" type="date" value="2023-02-06" readonly>
+            <label>Tình Trạng Sách: <input type="text" value="moi" readonly></label>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-muontrasach1">
+        <button class="b1">Mượn</button>
+        <button class="b1">Gia Hạn</button>
+        <button class="b1">Trả Sách</button>
+        <button class="b1">Làm mới</button>
+    </div>
+
+    <!-- Table Section -->
+    <table class="data-table-muontrasach">
+        <thead>
+            <tr>
+                <th>Mã Phiếu Mượn</th>
+                <th>Mã SV</th>
+                <th>Tên SV</th>
+                <th>Mã Sách</th>
+                <th>Tên Sách</th>
+                <th>Ngày Mượn</th>
+                <th>Ngày Trả</th>
+                <th>Ghi Chú</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>3</td>
+                <td>1003</td>
+                <td>Trần Anh Hoàng</td>
+                <td>S2</td>
+                <td>Sách Văn</td>
+                <td>02/05/2023</td>
+                <td>02/06/2023</td>
+                <td>moi</td>
+            </tr>
+
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Quản Lý Sách - Hệ Thống Quản Lý Thư Viện{% endblock %}
+
+{% block content %}
+
+        <div class="main-content-quanlynhanvien">
+            <!-- Header -->
+                <div class="header-quanlynhanvien">HỆ THỐNG QUẢN LÝ NHÂN</div>
+
+
+            <!-- Content -->
+            <div class="content-quanlynhanvien">
+                <h2>Quản Lý Nhân Viên</h2>
+
+                <!-- Registration Form -->
+                <!-- Registration Form -->
+                <div class="row">
+                <div class="col-md-4 sidebar-quanlynhanvien">
+
+                <div class="form-section-quanlynhanvien">
+                    <h3>Đăng Ký</h3>
+                    <div class="form-group-quanlynhanvien">
+                        <div class="form-field">
+                            <label>Mã NV - TK</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-field">
+                            <label>Số Điện Thoại</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label>Tên Nhân Viên</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-field">
+                            <label>Địa Chỉ</label>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label>Giới Tính</label>
+                            <select>
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label>Mật Khẩu</label>
+                            <input type="password">
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="buttons-quanlynhanvien ">
+                        <button>Đổi Mật Khẩu</button>
+                        <button>Đăng Ký</button>
+                        <button>Xóa</button>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Employee Table -->
+                <div class="col-md-8 sidebar-quanlynhanvien">
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Mã Nhân Viên</th>
+                            <th>Tên Nhân Viên</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Giới Tính</th>
+                            <th>Địa Chỉ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>nv10</td>
+                            <td>Tran Quang Huy</td>
+                            <td>987654321</td>
+                            <td>Nam</td>
+                            <td>Nghệ An</td>
+                        </tr>
+                        <tr>
+                            <td>NV6</td>
+                            <td>Quang Huy</td>
+                            <td>987654321</td>
+                            <td>Nam</td>
+                            <td>Nam Đàn Nghệ An</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <!-- Footer -->
+            </div>
+        </div>
+
+{% endblock %}
